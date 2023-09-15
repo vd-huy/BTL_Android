@@ -77,8 +77,6 @@ public class DongDiaDiemAdapter extends BaseAdapter {
         Bitmap bitmap = BitmapFactory.decodeByteArray(hinhAnh, 0, hinhAnh.length);
         viewHolder.imageView.setImageBitmap(bitmap);
 
-
-
         return view;
     }
 }

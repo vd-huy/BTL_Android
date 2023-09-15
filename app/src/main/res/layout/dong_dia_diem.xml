@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:layout_marginRight="10dp"
     android:layout_marginLeft="10dp"
+    android:layout_marginBottom="10dp"
     >
 
 
@@ -41,7 +42,9 @@
             android:layout_width="150dp"
             android:layout_height="20dp"
             android:rating="4.5"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            app:mrb_progressTint="#ff0"
+            />
 
         <LinearLayout
             android:layout_width="wrap_content"

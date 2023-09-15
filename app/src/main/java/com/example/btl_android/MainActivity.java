@@ -16,7 +16,7 @@ import java.io.ByteArrayOutputStream;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn;
+    Button btnHN, btnNB,btnDN;
     SQLite sqlDiaDiem;
     Integer i = 0;
 
@@ -25,33 +25,51 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn = (Button) findViewById(R.id.button);
+        btnHN = (Button) findViewById(R.id.HaNoi);
+        btnDN = (Button) findViewById(R.id.DaNang);
+        btnNB = (Button) findViewById(R.id.NinhBinh);
 
         sqlDiaDiem = new SQLite(MainActivity.this, "dulich.sqlite", null, 1);
 
         sqlDulich();
 
-        Cursor data = sqlDiaDiem.GetData("SELECT * FROM DiaDiem");
-        while (data.moveToNext()){
-        i++;
-            Toast.makeText(this, i + "", Toast.LENGTH_SHORT).show();
-
-        };
-
-        Log.e("ahsfkjabsfba" , "loi tiep theo");
-
-
-
-        btn.setOnClickListener(new View.OnClickListener() {
+        btnHN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 //                sqlDiaDiem = new SQLite(MainActivity.this, "dulich.sqlite", null, 1);
 
                 Intent intent = new Intent(MainActivity.this, InforLocation.class);
+                intent.putExtra("Tinh", "Hà Nội");
                 startActivity(intent);
             }
         });
+
+        btnNB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+//                sqlDiaDiem = new SQLite(MainActivity.this, "dulich.sqlite", null, 1);
+
+                Intent intent = new Intent(MainActivity.this, InforLocation.class);
+                intent.putExtra("Tinh", "Ninh Bình");
+                startActivity(intent);
+            }
+        });
+
+
+        btnDN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+//                sqlDiaDiem = new SQLite(MainActivity.this, "dulich.sqlite", null, 1);
+
+                Intent intent = new Intent(MainActivity.this, InforLocation.class);
+                intent.putExtra("Tinh", "Đà Nẵng");
+                startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -185,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
     {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),anh);
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,1,stream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG,50,stream);
         return stream.toByteArray();
     }
 }

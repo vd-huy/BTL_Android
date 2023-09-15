@@ -2,12 +2,17 @@ package com.example.btl_android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -23,6 +28,10 @@ public class InforLocation extends AppCompatActivity {
     ArrayList<DiaDiem> diaDiemArrayList;
     DongDiaDiemAdapter adapter;
 
+    ImageView btnBack;
+
+    TextView tvTittle;
+
 
 
     @Override
@@ -30,18 +39,21 @@ public class InforLocation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infor_location);
 
+        AnhXa();
 
-        diaDiemArrayList = new ArrayList<>();
-        lvDongDiaDiem = (ListView) findViewById(R.id.lvDongDiaDiem);
-
+        Intent intent = getIntent();
         adapter = new DongDiaDiemAdapter(InforLocation.this,R.layout.dong_dia_diem,diaDiemArrayList);
         lvDongDiaDiem.setAdapter(adapter);
+
+        String tinh = intent.getStringExtra("Tinh");
+
+        tvTittle.setText(tinh);
 
         //get data
 
         sqlDiaDiem = new SQLite(InforLocation.this , "dulich.sqlite", null ,1);
 
-        Cursor data = sqlDiaDiem.GetData("SELECT * FROM DiaDiem");
+        Cursor data = sqlDiaDiem.GetData("SELECT * FROM DiaDiem WHERE tenTinh = " + "'"  + tinh + "'");
         while (data.moveToNext()){
             diaDiemArrayList.add(new DiaDiem(
                     data.getInt(0),
@@ -54,6 +66,15 @@ public class InforLocation extends AppCompatActivity {
             ));
         }
         adapter.notifyDataSetChanged();
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(InforLocation.this, MainActivity.class);
+                startActivity(intent);
+
+            }
+        });
     }
 
 //    public void sqlDulich() {
@@ -188,6 +209,8 @@ public class InforLocation extends AppCompatActivity {
     private void AnhXa(){
         lvDongDiaDiem = (ListView) findViewById(R.id.lvDongDiaDiem);
         diaDiemArrayList = new ArrayList<>();
+        btnBack = (ImageView) findViewById(R.id.btnBack);
+        tvTittle = (TextView) findViewById(R.id.tvTittle);
     }
 
     public byte[] anh(int anh)
