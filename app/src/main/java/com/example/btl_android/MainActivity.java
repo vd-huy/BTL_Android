@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
 //                sqlDiaDiem = new SQLite(MainActivity.this, "dulich.sqlite", null, 1);
 
-                Intent intent = new Intent(MainActivity.this, InforLocation.class);
+                Intent intent = new Intent(MainActivity.this, dangky.class);
                 startActivity(intent);
             }
         });
