@@ -31,24 +31,13 @@ public class MainActivity extends AppCompatActivity {
 
         sqlDulich();
 
-        Cursor data = sqlDiaDiem.GetData("SELECT * FROM DiaDiem");
-        while (data.moveToNext()){
-        i++;
-            Toast.makeText(this, i + "", Toast.LENGTH_SHORT).show();
-
-        };
-
-        Log.e("ahsfkjabsfba" , "loi tiep theo");
-
-
-
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 //                sqlDiaDiem = new SQLite(MainActivity.this, "dulich.sqlite", null, 1);
 
-                Intent intent = new Intent(MainActivity.this, dangky.class);
+                Intent intent = new Intent(MainActivity.this, trangchu.class);
                 startActivity(intent);
             }
         });
