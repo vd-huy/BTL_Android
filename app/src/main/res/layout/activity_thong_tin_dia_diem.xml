@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThongTinDiaDiem"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:weightSum="10"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/orange"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        >
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_weight="2"
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:src="@drawable/back"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            />
+        <TextView
+
+            android:id="@+id/tvTittle"
+            android:layout_weight="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bình Phước"
+            android:textColor="@color/orange"
+            android:textSize="24sp"
+            android:padding="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/radius_textview"
+
+            />
+    </LinearLayout>
+    
+   <com.google.android.material.tabs.TabLayout
+       android:id="@+id/tab_layout"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:tabSelectedTextColor="@color/orange"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+
+
+</LinearLayout>

@@ -9,10 +9,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -67,12 +69,23 @@ public class InforLocation extends AppCompatActivity {
         }
         adapter.notifyDataSetChanged();
 
+        data.close();
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(InforLocation.this, MainActivity.class);
                 startActivity(intent);
 
+
+            }
+        });
+
+        lvDongDiaDiem.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                DiaDiem selectedDiaDiem = diaDiemArrayList.get(i);
+
+                Toast.makeText(InforLocation.this, i, Toast.LENGTH_SHORT).show();
             }
         });
     }

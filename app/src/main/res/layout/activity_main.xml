@@ -33,4 +33,12 @@
         tools:layout_editor_absoluteX="170dp"
         tools:layout_editor_absoluteY="166dp" />
 
+    <Button
+        android:id="@+id/btnThongTinDiaDiem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thông tin địa điểm"
+        tools:layout_editor_absoluteX="170dp"
+        tools:layout_editor_absoluteY="166dp" />
+
 </LinearLayout>

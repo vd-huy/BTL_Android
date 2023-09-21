@@ -16,6 +16,10 @@ public class SQLite extends SQLiteOpenHelper {
         super(context, name, factory, version);
     }
 
+    public SQLite(Context context) {
+        super(context, "dulich.sqlite", null, 1);
+    }
+
     //truy van kh tra ket qua
     public void QueryData(String query){
         SQLiteDatabase database = getWritableDatabase();

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">BTL_Android</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="thong_tin_fragment">Tab Thông tin</string>
+    <string name="binh_luan_fragment">Tab Bình Luận</string>
+
 </resources>

@@ -16,7 +16,7 @@ import java.io.ByteArrayOutputStream;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnHN, btnNB,btnDN;
+    Button btnHN, btnNB,btnDN, btnTTDD;
     SQLite sqlDiaDiem;
     Integer i = 0;
 
@@ -28,10 +28,19 @@ public class MainActivity extends AppCompatActivity {
         btnHN = (Button) findViewById(R.id.HaNoi);
         btnDN = (Button) findViewById(R.id.DaNang);
         btnNB = (Button) findViewById(R.id.NinhBinh);
+        btnTTDD = (Button) findViewById(R.id.btnThongTinDiaDiem);
 
         sqlDiaDiem = new SQLite(MainActivity.this, "dulich.sqlite", null, 1);
 
         sqlDulich();
+
+        btnTTDD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ThongTinDiaDiem.class);
+                startActivity(intent);
+            }
+        });
 
         btnHN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, InforLocation.class);
                 intent.putExtra("Tinh", "Hà Nội");
                 startActivity(intent);
+
+                Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
             }
         });
 
