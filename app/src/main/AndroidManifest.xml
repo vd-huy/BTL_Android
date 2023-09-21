@@ -19,9 +19,6 @@
             android:name=".dangky"
             android:exported="false" />
         <activity
-            android:name=".dangnhap"
-            android:exported="false" />
-        <activity
             android:name=".InforLocation"
             android:exported="false" />
         <activity
