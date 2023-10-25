@@ -1,37 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".dangky">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/logo"
-            android:layout_marginTop="100dp"
-            android:layout_marginLeft="145dp"
-
-            />
-
-    </LinearLayout>
+        android:src="@drawable/logo"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="125dp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="Đăng Nhập"
+        android:text="Đăng ký"
         android:textStyle="bold"
         android:textSize="30dp"
-        android:layout_marginLeft="125dp"
+        android:layout_marginLeft="150dp"
         android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:id="@+id/Hoten"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/black"
+
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="10dp"
+        android:hint="Họ và tên"
         />
 
     <EditText
@@ -45,45 +49,55 @@
         android:hint="Tên đăng nhập"
         />
 
-
     <EditText
         android:id="@+id/matkhau"
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:backgroundTint="@color/black"
 
-
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
         android:hint="Mật khẩu"
+        />
+
+    <EditText
+        android:id="@+id/nhaplaimatkhau"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/black"
+
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:hint="Nhập lại mật khẩu"
         />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="10dp"
         >
 
         <Button
-            android:id="@+id/btndangnhap"
+            android:id="@+id/dangky"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:backgroundTint="@color/orange"
 
             android:layout_marginLeft="50dp"
-            android:text="Đăng nhập"
+            android:text="Đăng ký"
             android:textColor="@color/black"
             android:layout_marginTop="20dp"
 
             />
         <Button
-            android:id="@+id/btndangky"
+            android:id="@+id/dangnhap"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:backgroundTint="#C3B9B9"
 
             android:layout_marginLeft="5dp"
-            android:text="Đăng ký"
+            android:text="Đăng nhập"
             android:textColor="@color/black"
             android:layout_marginTop="20dp"
 
@@ -92,3 +106,4 @@
     </LinearLayout>
 
 </LinearLayout>
+

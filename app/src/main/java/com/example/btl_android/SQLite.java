@@ -75,6 +75,19 @@ public class SQLite extends SQLiteOpenHelper {
 
     }
 
+    public void INSERT_Taikhoan(String email, String hoten, String matkhau){
+        SQLiteDatabase db = getWritableDatabase();
+        String sql = "INSERT INTO TaiKhoan VALUES (?, ?, ?)";
+        SQLiteStatement statement = db.compileStatement(sql);
+        statement.clearBindings();
+
+        statement.bindString(1,email);
+        statement.bindString(2,hoten);
+        statement.bindString(3,matkhau);
+        statement.executeInsert();
+    }
+
+
 
 
 

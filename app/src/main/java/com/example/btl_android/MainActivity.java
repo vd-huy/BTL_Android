@@ -10,89 +10,84 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnHN, btnNB,btnDN, btnTTDD;
-    SQLite sqlDiaDiem;
+    Button btndangnhap,btndangky;
+
+    EditText EDtendangnhap,EDmatkhau;
+
+    String stendangnhap,matkhau;
+    SQLite db;
     Integer i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        anhxa();
 
-        btnHN = (Button) findViewById(R.id.HaNoi);
-        btnDN = (Button) findViewById(R.id.DaNang);
-        btnNB = (Button) findViewById(R.id.NinhBinh);
-        btnTTDD = (Button) findViewById(R.id.btnThongTinDiaDiem);
-
-        sqlDiaDiem = new SQLite(MainActivity.this, "dulich.sqlite", null, 1);
+        db = new SQLite(MainActivity.this, "dulich.sqlite", null, 1);
 
         sqlDulich();
 
-        btnTTDD.setOnClickListener(new View.OnClickListener() {
+
+        btndangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ThongTinDiaDiem.class);
-                startActivity(intent);
+                stendangnhap = EDtendangnhap.getText().toString();
+                matkhau = EDmatkhau.getText().toString();
+
+                Cursor data = db.GetData("Select * From TaiKhoan where Tendangnhap = '"+ stendangnhap + "' and MatKhau = '" + matkhau +"'");
+
+                if (data.moveToFirst()){
+                    do{
+                        Intent intent = new Intent(MainActivity.this, trangchu.class);
+                        startActivity(intent);
+
+                    }
+                    while (data.moveToNext());
+                }
+                else {
+
+                    Toast.makeText(MainActivity.this, "Thông tin tài khoản không chính xác", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
-        btnHN.setOnClickListener(new View.OnClickListener() {
+        btndangky.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-//                sqlDiaDiem = new SQLite(MainActivity.this, "dulich.sqlite", null, 1);
-
-                Intent intent = new Intent(MainActivity.this, InforLocation.class);
-                intent.putExtra("Tinh", "Hà Nội");
+                Intent intent = new Intent(MainActivity.this, dangky.class);
                 startActivity(intent);
 
-                Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
             }
         });
 
-        btnNB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-//                sqlDiaDiem = new SQLite(MainActivity.this, "dulich.sqlite", null, 1);
-
-                Intent intent = new Intent(MainActivity.this, InforLocation.class);
-                intent.putExtra("Tinh", "Ninh Bình");
-                startActivity(intent);
-            }
-        });
-
-
-        btnDN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-//                sqlDiaDiem = new SQLite(MainActivity.this, "dulich.sqlite", null, 1);
-
-                Intent intent = new Intent(MainActivity.this, InforLocation.class);
-                intent.putExtra("Tinh", "Đà Nẵng");
-                startActivity(intent);
-            }
-        });
-
+    }
+    public void anhxa(){
+        btndangnhap = (Button) findViewById(R.id.btndangnhap);
+        EDtendangnhap = (EditText)  findViewById(R.id.tendangnhap);
+        EDmatkhau = (EditText) findViewById(R.id.matkhau);
+        btndangky =(Button) findViewById(R.id.btndangky);
 
     }
 
+
     public void sqlDulich() {
-        sqlDiaDiem.QueryData
+        db.QueryData
                 //khoi tao cac bang
                         ("CREATE TABLE IF NOT EXISTS Tinh (\n" +
                                 "    IdTinh INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
                                 "    tenTinh NVARCHAR(50) UNIQUE NOT NULL\n" +
                                 ")");
 
-        sqlDiaDiem.QueryData("CREATE TABLE IF NOT EXISTS DiaDiem(\n" +
+        db.QueryData("CREATE TABLE IF NOT EXISTS DiaDiem(\n" +
                 "\tId INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT ,\n" +
                 "\ttenDiaDiem NVARCHAR(50),\n" +
                 "\tthongTin TEXT,\n" +
@@ -103,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 "\tFOREIGN KEY (tenTinh) REFERENCES Tinh(TenTinh)\n"+
                 ")\n");
 
-        sqlDiaDiem.QueryData("CREATE TABLE IF NOT EXISTS KhachSan(\n" +
+        db.QueryData("CREATE TABLE IF NOT EXISTS KhachSan(\n" +
                 "\tId INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT ,\n" +
                 "\ttenKhachSan NVARCHAR(50),\n" +
                 "\tsoDienThoai NVARCHAR(11),\n" +
@@ -114,13 +109,21 @@ public class MainActivity extends AppCompatActivity {
                 "\tFOREIGN KEY (tenDiaDiem) REFERENCES DiaDiem(tenDiaDiem)\n"+
                 ")\n");
 
+        db.QueryData(
+                "CREATE TABLE IF NOT EXISTS TaiKhoan (\n" +
+                        "\tTendangnhap NVARCHAR(50) PRIMARY KEY NOT NULL, \n" +
+                        "\tHoTen NVARCHAR(50) NOT NULL, \n" +
+                        "\tMatKhau NVARCHAR(50) NOT NULL \n" + ")\n"
+        );
+
+
         // insert du lieu tinh
-//        sqlDiaDiem.INSERT_Tinh("Hà Nội");
-//        sqlDiaDiem.INSERT_Tinh("Ninh Bình");
-//        sqlDiaDiem.INSERT_Tinh("Đà Nẵng");
+//        db.INSERT_Tinh("Hà Nội");
+//        db.INSERT_Tinh("Ninh Bình");
+//        db.INSERT_Tinh("Đà Nẵng");
 //
 //        //insert du lieu dia diem
-//        sqlDiaDiem.INSERT_DiaDiem("Tràng An", "Quần thể Tràng An ở Ninh Bình không chỉ là danh thắng quan trọng và nổi bật bậc nhất phía bắc Việt Nam, mà còn được UNESCO công nhận là di sản thế giới. Hằng năm nơi đây thu hút hàng triệu lượt khách đến tham quan thưởng ngoạn, điều đáng nói là trong đó lượng khách du lịch nước ngoài rất đông. Có thể thấy Tràng An là viên ngọc sáng nhất trong hàng loạt các thắng cảnh của Ninh Bình.\n" +
+//        db.INSERT_DiaDiem("Tràng An", "Quần thể Tràng An ở Ninh Bình không chỉ là danh thắng quan trọng và nổi bật bậc nhất phía bắc Việt Nam, mà còn được UNESCO công nhận là di sản thế giới. Hằng năm nơi đây thu hút hàng triệu lượt khách đến tham quan thưởng ngoạn, điều đáng nói là trong đó lượng khách du lịch nước ngoài rất đông. Có thể thấy Tràng An là viên ngọc sáng nhất trong hàng loạt các thắng cảnh của Ninh Bình.\n" +
 //                "\n" +
 //                "Nơi đây có dãy núi đá vôi với 250 triệu năm tuổi, và trải qua thời gian biến đổi, phong hóa, Tràng An mang một vẻ đẹp rất thơ và đầy quyến rũ với hàng loạt những thung lũng, hồ đầm, hang động, với những cánh rừng ngập nước hay rừng trên núi đá vôi tuyệt đẹp. Đến với Ninh Bình, du khách có thể tham quan cả quần thể danh thắng Tràng An đó là Tràng An - Tam Cốc – Bích Động – Cố đô Hoa Lư – rừng đặc dụng Hoa Lư.\n"+
 //                "\n" +
@@ -129,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
 //                "Với những ai thích ngắm cánh đồng lúa chín vàng trên thuyền thì thời điểm tháng 7 đến tháng 9 là thích hợp. Tháng 6, thời tiết tuy có oi bức nhưng trời lạnh và ít mưa cũng rất thích hợp. Tháng 11 và tháng 12 thời tiết xấu, mưa nhiều vì thế bạn nên tránh du lịch Tràng An vào thời gian này.", "Ninh Bình" , "Núi Kỳ Lân, Phường Tân Thành, Thành phố Ninh Bình, Tỉnh Ninh Bình", 4.5, anh(R.drawable.anhtrangan)
 //        );
 //
-//        sqlDiaDiem.INSERT_DiaDiem("Chùa Bái Đính", "Chùa Bái Đính là một điểm du lịch tâm linh nổi tiếng nằm trong khu du lịch sinh thái Bái Đính – Tràng An, với tuổi đời hơn 1000 năm tuổi và gắn liền với vùng đất của nhiều triều đại phong kiến từ nhà Đinh, nhà Tiền Lê đến nhà Lý.\n" +
+//        db.INSERT_DiaDiem("Chùa Bái Đính", "Chùa Bái Đính là một điểm du lịch tâm linh nổi tiếng nằm trong khu du lịch sinh thái Bái Đính – Tràng An, với tuổi đời hơn 1000 năm tuổi và gắn liền với vùng đất của nhiều triều đại phong kiến từ nhà Đinh, nhà Tiền Lê đến nhà Lý.\n" +
 //                "\n" +
 //                "Du khách khi đặt chân đến đây sẽ bị thu hút bởi kiến trúc hoành tráng, những bảo tháp nguy nga và khung cảnh làm say đắm lòng người. Hằng năm, địa điểm này thu hút một lượng du khách đến tham quan và vãn cảnh chùa. Không gây ấn tượng với du khách bởi kiến trúc độc đáo mà còn sở hữu nhiều cái nhất ở Việt Nam và trên thế giới.\n"+
 //                "\n" +
@@ -138,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 //                "Mỗi mùa, quần thể du lịch Tràng An khoác lên mình một nét đẹp riêng làm say đắm bao lữ khách. Vậy nên, du khách có thể đến tham quan chùa Bái Đinh bất kể mùa nào trong năm. Tuy nhiên, theo kinh nghiệm du lich chùa Bái Đính - Tràng An, thời gian thích hợp nhất là từ tháng 1 đến tháng 3 âm lịch, lúc này thời tiết vô cùng mát mẻ và trong lành, rất nhiều lễ hội được tổ chức trong thời điểm này. Vì thế, du khách có thể đi lễ chùa Bái Đính để thưởng ngoạn không khí Tết.", "Ninh Bình" , "Chùa Bái Đính, Gia Sinh, Gia Viễn, Ninh Bình", 4.5, anh(R.drawable.anhchuabaidinh)
 //        );
 //
-//        sqlDiaDiem.INSERT_DiaDiem("Tam Cốc - Bích Động", "Tam Cốc Bích Động - Ninh Bình là một phần trong quần thể danh thắng Tràng An - Di sản thế giới được UNESCO công nhận về các giá trị văn hóa và tự nhiên vào năm 2014. Tam Cốc Bích Động là một khu vực rộng lớn, nổi bật nhất là những hang động đá vôi, khung cảnh làng quê hòa mình vào thiên nhiên tuyệt đẹp.\n" +
+//        db.INSERT_DiaDiem("Tam Cốc - Bích Động", "Tam Cốc Bích Động - Ninh Bình là một phần trong quần thể danh thắng Tràng An - Di sản thế giới được UNESCO công nhận về các giá trị văn hóa và tự nhiên vào năm 2014. Tam Cốc Bích Động là một khu vực rộng lớn, nổi bật nhất là những hang động đá vôi, khung cảnh làng quê hòa mình vào thiên nhiên tuyệt đẹp.\n" +
 //                "\n" +
 //                "Khu du lịch Tam Cốc - Bích Động với diện tích tự nhiên là 350,3 ha, nằm cách quốc lộ 1A 2km, cách thành phố Ninh Bình 7 km, chủ yếu khu vực nằm trên xã Ninh Hải (Hoa Lư). Cũng giống như Tràng An, để đi tham quan Tam Cốc, du khách phải đi bằng thuyền, xuôi theo dòng sông Ngô Đồng thơ mộng, nước trong xanh một màu có thể nhìn thấy đấy để chiêm ngưỡng động. Khung cảnh Tam Cốc nổi bật bởi sự kết hợp hài hòa của đá và nước. Các ngọn núi với ở đây mang những hình thù đa dạng, nối tiếp nhau, ngọn này đến ngọn khác.\n"+
 //                "\n" +
@@ -147,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
 //                "Khoảng từ tháng 1 đến tháng 3 âm lịch hàng năm là mùa lễ hội chùa Bái Đính, du khách có thể kết hợp đi lễ và khám phá Tam Cốc Bích Động vào dịp này.", "Ninh Bình","Núi Kỳ Lân, Phường Tân Thành, Thành phố Ninh Bình, Tỉnh Ninh Bình", 4.5, anh(R.drawable.anhtamcoc)
 //        );
 //
-//        sqlDiaDiem.INSERT_DiaDiem("Cố Đô Hoa Lư", "Thành phố Ninh Bình cách thủ đô Hà Nội 93km về phía Nam, tại đầu mối giao thông của 3 tuyến đường cao tốc Cầu Giẽ - Ninh Bình, Ninh Bình - Thanh Hóa - Vinh và Ninh Bình - Hải Phòng - Hạ Long. Ninh Bình nổi tiếng với các điểm du lịch như: Chùa Bái Đính, khu du lịch sinh thái Vườn Chim Thung Nham, rừng Cúc Phương, Tràng An, Tam Cốc Bích Động... và không thể thiếu Cố Đô Hoa Lư.\n" +
+//        db.INSERT_DiaDiem("Cố Đô Hoa Lư", "Thành phố Ninh Bình cách thủ đô Hà Nội 93km về phía Nam, tại đầu mối giao thông của 3 tuyến đường cao tốc Cầu Giẽ - Ninh Bình, Ninh Bình - Thanh Hóa - Vinh và Ninh Bình - Hải Phòng - Hạ Long. Ninh Bình nổi tiếng với các điểm du lịch như: Chùa Bái Đính, khu du lịch sinh thái Vườn Chim Thung Nham, rừng Cúc Phương, Tràng An, Tam Cốc Bích Động... và không thể thiếu Cố Đô Hoa Lư.\n" +
 //                "\n" +
 //                "Nằm giáp ranh giữa 2 huyện Hoa Lư và Gia Viễn thành phố Ninh Bình của tỉnh Ninh Bình, kinh đô Hoa Lư xưa. Cố đô được biết đến với nhiều di tích lịch sử có giá trị và điểm đến với nhiều thắng cảnh đẹp, thiên nhiên tươi mát hấp dẫn du khách. Cố Đô Hoa Lư được UNESCO công nhận là một trong 4 vùng lõi thuộc quần thể di sản thế gới Tràng An.\n"+
 //                "\n" +
@@ -156,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
 //                "Du khách nên du lịch đến Ninh Bình vào mùa khô, bắt đầu từ tháng 11 đến tháng 3 năm sau. Hạn chế đi vào mùa nước lớn vì có thể du khách sẽ không đi được thuyền vào các hang động. Vào mùa hè thì thời tiết sẽ có nắng đẹp, mát mẻ hơn so với mùa đông.", "Ninh Bình" , "Trường Yên, Hoa Lư, Ninh Bình, Việt Nam", 4.5, anh(R.drawable.anhcodohoalu)
 //        );
 //
-//        sqlDiaDiem.INSERT_DiaDiem("Hồ Hoàn Kiếm", "Hồ nước ngọt này nằm ngay trung tâm Thủ Đô Hà Nội, có diện tích khoảng 12 hecta. Bao quanh hồ là các phố Lê Thái Tổ ở phía Tây, phố Đinh Tiên Hoàng ở phía Đông, phố Hàng Khay phía nam, tượng vua Lê Thái Tổ, cầu Thê Húc, tháp Bút, đền Bà Kiệu,...Hồ Hoàn Kiếm là di sản vô giá gắn với những truyền thuyết lịch sử và văn hóa linh thiêng từ lâu đời.\n" +
+//        db.INSERT_DiaDiem("Hồ Hoàn Kiếm", "Hồ nước ngọt này nằm ngay trung tâm Thủ Đô Hà Nội, có diện tích khoảng 12 hecta. Bao quanh hồ là các phố Lê Thái Tổ ở phía Tây, phố Đinh Tiên Hoàng ở phía Đông, phố Hàng Khay phía nam, tượng vua Lê Thái Tổ, cầu Thê Húc, tháp Bút, đền Bà Kiệu,...Hồ Hoàn Kiếm là di sản vô giá gắn với những truyền thuyết lịch sử và văn hóa linh thiêng từ lâu đời.\n" +
 //                "\n" +
 //                "Cách đây khoảng 6 thế kỷ, hồ Gươm có tên là hồ Lục Thủy. Nhưng đến thế kỷ XV, hồ được đổi tên thành hồ Hoàn Kiếm, gắn liền với truyền thuyết vua Lê Lợi trả gươm thần. Chuyện kể về thời giặc Minh hoành hành ở nước ta, vua Lê Lợi cầm quân đánh giặc, khi đó được rùa thần Kim Quy tặng cho thanh gươm thần. Đánh tan giặc, ông lên ngôi lấy hiệu là Lê Thái Tổ, dời đô về Thăng Long. Trong một lần vua dạo chơi trên hồ Lục Thủy, rùa thần nổi lên xin vua trả lại thanh gươm báu. Từ đó, hồ này đổi tên thành hồ Hoàn Kiếm.\n"+
 //                "\n" +
@@ -165,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
 //                "Mỗi năm vào dịp tết Nguyên Đán, người người nô nức du xuân quanh hồ. Thời điểm này, hồ cũng là nơi gặp gỡ của nam nữ, chụp ảnh cưới của các đôi uyên ương, ảnh lưu niệm. Hè đến, nơi đây là điểm hóng mát lý tưởng dưới những tán cây rợp bóng. Du khách sẽ phải thảng thốt trước vẻ đẹp e lệ của những cây bằng lăng tím rạng rỡ, những cây phượng cháy đỏ.", "Hà Nội" , "Quận hoàn kiếm, Thành phố hà nội, Việt Nam", 4.5, anh(R.drawable.anhhohoankiem)
 //        );
 //
-//        sqlDiaDiem.INSERT_DiaDiem("Lăng Chủ Tịch Hồ Chí Minh", "Nằm trong trung tâm thủ đô Hà Nội, Lăng Chủ Tịch là trái tim của Hà Nội. Nơi đây cất giữ di hài của vị cha già dân tộc đang yên giấc ngủ ngàn thu. Một nhà yêu nước lớn, một danh nhân văn hóa thế giới, một vị lãnh tụ của Việt Nam mà nhiều vị lãnh tụ khác phải kính trọng và nể phục.\n" +
+//        db.INSERT_DiaDiem("Lăng Chủ Tịch Hồ Chí Minh", "Nằm trong trung tâm thủ đô Hà Nội, Lăng Chủ Tịch là trái tim của Hà Nội. Nơi đây cất giữ di hài của vị cha già dân tộc đang yên giấc ngủ ngàn thu. Một nhà yêu nước lớn, một danh nhân văn hóa thế giới, một vị lãnh tụ của Việt Nam mà nhiều vị lãnh tụ khác phải kính trọng và nể phục.\n" +
 //                "\n" +
 //                "Được khởi công vào ngày 2 tháng 9 năm 1973, tại vị trí của lễ đài cũ giữa quảng trường Ba Đình - nơi người đã từng chủ trì cuộc mít tinh lớn. Lăng Chủ Tịch cao 21.6m, gồm 3 lớp.\n"+
 //                "\n" +

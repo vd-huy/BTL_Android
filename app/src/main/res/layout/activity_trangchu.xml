@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".trangchu">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        >
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+
+            android:src="@drawable/logo"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="20dp"
+
+            />
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+
+            android:src="@drawable/dangnhap"
+            android:layout_marginLeft="260dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        >
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="50dp"
+
+            android:src="@drawable/kinhlup"
+            android:layout_marginTop="10dp"
+
+            />
+
+
+        <AutoCompleteTextView
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="#F6F6F6"
+            android:hint="Nhập điểm đến"
+            android:layout_marginTop="10dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="5dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Địa Điểm Hot"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hanoi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:id="@+id/anhhanoi"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/hanoi"
+                android:layout_marginLeft="25dp"
+
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginRight="10dp"
+            >
+
+            <TextView
+                android:id="@+id/tvHaNoi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Hà Nội"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:layout_marginLeft="20dp"
+                />
+            <TextView
+                android:id="@+id/hanoi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Hà Nội là thủ đô, thành phố trực thuộc trung ương và là một trong hai đô thị loại đặc biệt của nước Cộng hòa xã hội chủ nghĩa Việt Nam."
+                android:layout_marginLeft="15dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ninhbinh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weightSum="20"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="20"
+            >
+
+            <TextView
+                android:id="@+id/tvNinhBinh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Ninh Bình"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:layout_marginLeft="15dp"
+                />
+            <TextView
+                android:id="@+id/textninhbinh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+
+                android:text="Ninh Bình có tiềm năng du lịch rất lớn, là nơi có tới 4 danh hiệu UNESCO."
+
+                />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/anhninhbinh"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_weight="4"
+
+            android:src="@drawable/ninhbinh"
+            android:layout_marginRight="15dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/danang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:id="@+id/anhdanang"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+
+                android:src="@drawable/danang"
+                android:layout_marginLeft="25dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginRight="10dp"
+            >
+
+            <TextView
+                android:id="@+id/tvDaNang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Đà Nẵng"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:layout_marginLeft="20dp"
+                />
+            <TextView
+                android:id="@+id/textdanang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Đà Nẵng là một thành phố có nhiều tiềm năng để phát triển du lịch, là trung tâm du lịch lớn hàng đầu của Việt Nam."
+                android:layout_marginLeft="15dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
