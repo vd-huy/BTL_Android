@@ -17,7 +17,7 @@ public class FragmentAdapter extends FragmentStateAdapter {
 
         switch (position) {
             case 1:
-                return new BinhLuanFragment();
+                return new HotelFragment();
             default:
                 return new ThongTinFragment();
 

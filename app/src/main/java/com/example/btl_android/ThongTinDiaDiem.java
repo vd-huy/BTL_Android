@@ -49,7 +49,7 @@ public class ThongTinDiaDiem extends FragmentActivity {
                         tab.setText("Thông tin");
                         break;
                     case 1:
-                        tab.setText("Bình Luận");
+                        tab.setText("Khách sạn");
                         break;
                     default:
                         tab.setText("Thông tin");
@@ -57,14 +57,6 @@ public class ThongTinDiaDiem extends FragmentActivity {
                 }
             }
         }).attach();
-
-
-
-
-
-
-
-
 
     }
 

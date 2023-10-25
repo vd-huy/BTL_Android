@@ -103,6 +103,17 @@ public class MainActivity extends AppCompatActivity {
                 "\tFOREIGN KEY (tenTinh) REFERENCES Tinh(TenTinh)\n"+
                 ")\n");
 
+        sqlDiaDiem.QueryData("CREATE TABLE IF NOT EXISTS KhachSan(\n" +
+                "\tId INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT ,\n" +
+                "\ttenKhachSan NVARCHAR(50),\n" +
+                "\tsoDienThoai NVARCHAR(11),\n" +
+                "\ttenDiaDiem NVARCHAR(50), \n" +
+                "\tdiaChi NVARCHAR(500),\n" +
+                "\trate FLOAT,\n" +
+                "\thinhAnh BLOG, \n"+
+                "\tFOREIGN KEY (tenDiaDiem) REFERENCES DiaDiem(tenDiaDiem)\n"+
+                ")\n");
+
         // insert du lieu tinh
 //        sqlDiaDiem.INSERT_Tinh("Hà Nội");
 //        sqlDiaDiem.INSERT_Tinh("Ninh Bình");
@@ -207,6 +218,20 @@ public class MainActivity extends AppCompatActivity {
 //                "\n"+
 //                "Nổi tiếng nhất trong 6 ngọn núi này (Hỏa Sơn gồm 2 ngọn tạo thành) có lẽ là Thủy Sơn, trên núi có nhiều đình chùa và công trình kì vĩ còn dưới chân núi này là làng nghề điêu khắc đá lâu năm - nơi lí tưởng để bạn mua quà lưu niệm.", "Đà Nẵng" , "Phường Hòa Hải, Quận Ngũ Hành Sơn, Tp. Đà Nẵng, Việt Nam", 4.5, anh(R.drawable.anhnguhanhdon)
 //        );
+
+        // insert KhachSan
+//        sqlDiaDiem.INSERT_KhachSan("Green Mountain Homestay", "0964129650", "Tràng An", "Ninh Bình (cách 0,7 km từ Trang An Eco Tourism Complex)", 5, anh(R.drawable.khachsantrangan));
+//        sqlDiaDiem.INSERT_KhachSan("Green Mountain Homestay", "0947654372", "Chùa Bái Đính", "Ninh Bình (cách 5,2 km từ Chùa Bái Đính)", 5, anh(R.drawable.khachsantrangan));
+//        sqlDiaDiem.INSERT_KhachSan("Tam Coc Horizon Bungalow", "0998657342", "Tam Cốc - Bích Động", "Ninh Bình (cách 0,6 km từ Động Tam Cốc)", 5, anh(R.drawable.khachsantamcoc));
+//        sqlDiaDiem.INSERT_KhachSan("Green Mountain Homestay", "0986473215", "Cố Đô Hoa Lư", "Ninh Bình (cách 2 km từ Cố Đô Hoa Lư)", 5, anh(R.drawable.khachsantrangan));
+//        sqlDiaDiem.INSERT_KhachSan("Solaria Hanoi Hotel", "0978654327", "Hồ Hoàn Kiếm", "Hà Nội (cách 0,25 km từ Hồ Hoàn Kiếm)", 5, anh(R.drawable.khachsanhohoankiem));
+//        sqlDiaDiem.INSERT_KhachSan("MICHI house", "0987543362", "Lăng Chủ Tịch Hồ Chí Minh", "Hà Nội (cách 0,4 km từ Lăng Bác)", 5, anh(R.drawable.khachsanlangbac));
+//        sqlDiaDiem.INSERT_KhachSan("Pullman Hanoi", "0988876421", "Văn Miếu Quốc Tử Giám", "Hà Nội (cách 0,8 km từ Văn Miếu Quốc Tử Giám)", 5, anh(R.drawable.khachsanvanmieu));
+//        sqlDiaDiem.INSERT_KhachSan("Da Tree Homestay", "0985424325", "Chùa Một Cột", "Hà Nội (cách 0,6 km từ Chùa Một Cột)", 5, anh(R.drawable.anhchuamotcot));
+//        sqlDiaDiem.INSERT_KhachSan("Sontra Sea Hotel", "0933322256", "Chùa Linh Ứng", "Đà Nẵng (cách 0,6 km từ Chùa Linh Ứng)", 5, anh(R.drawable.khachsanchualinhung));
+//        sqlDiaDiem.INSERT_KhachSan("Mercure Danang French Village Bana Hills", "0988887777", "Bà Nà Hills", "Đà Nẵng (cách 1,4 km từ Trung tâm Bà Nà Hills)", 5, anh(R.drawable.khachsanbalahill));
+//        sqlDiaDiem.INSERT_KhachSan("Danang Marriott Resort & Spa", "0856483123", "Ngũ Hành Sơn", "Đà Nẵng(cách 0,6 km từ Ngũ Hành Sơn)", 5, anh(R.drawable.khachsannguhanhson));
+
 
     }
 

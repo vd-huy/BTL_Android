@@ -59,6 +59,22 @@ public class SQLite extends SQLiteOpenHelper {
 
     }
 
+    public void INSERT_KhachSan(String TenKhachSan, String SoDienThoai, String TenDiaDiem ,String DiaChi ,double Rate, byte[] HinhAnh) {
+        SQLiteDatabase db = getWritableDatabase();
+        String sql = "INSERT INTO KhachSan VALUES (null, ?, ?, ?, ?, ?, ?)";
+        SQLiteStatement statement = db.compileStatement(sql);
+        statement.clearBindings();
+
+        statement.bindString(1,TenKhachSan);
+        statement.bindString(2,SoDienThoai);
+        statement.bindString(3,DiaChi);
+        statement.bindString(4,TenDiaDiem);
+        statement.bindDouble(5,Rate);
+        statement.bindBlob(6,HinhAnh);
+        statement.executeInsert();
+
+    }
+
 
 
 
