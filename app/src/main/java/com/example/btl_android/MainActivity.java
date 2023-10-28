@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
 //                "Phía trước lăng là quảng trường Ba Đình rộng lớn, lá cờ đỏ sao vàng cao 29 m tung bay phất phới trong nắng sớm như hình ảnh Bác Hồ vẫy chào những đứa con của mình. Với thảm cỏ dài 38 hecta, chia thành 240 ô vuông cỏ xanh tươi suốt bốn mùa.", "Hà Nội" , "Số 1, Đường Hùng Vương, Điện Biên, Ba Đình, Tp. Hà Nội", 4.5, anh(R.drawable.anhlangbac)
 //        );
 //
-//        sqlDiaDiem.INSERT_DiaDiem("Văn Miếu Quốc Tử Giám", "Văn Miếu - Quốc Tử Giám là quần thể di tích đa dạng và phong phú còn nguyên vẹn ở Hà Nội, nằm ở phía Nam kinh thành Thăng Long. Nếu có dịp đi du lịch Hà Nội, các bạn nên dành chút thời gian để tham quan Văn Miếu - Quốc Tử Giám, trường đại học đầu tiên của Việt Nam, nơi đây hứa hẹn nhiều thông tin thú vị cho các bạn tự khám phá.\n" +
+//        db.INSERT_DiaDiem("Văn Miếu Quốc Tử Giám", "Văn Miếu - Quốc Tử Giám là quần thể di tích đa dạng và phong phú còn nguyên vẹn ở Hà Nội, nằm ở phía Nam kinh thành Thăng Long. Nếu có dịp đi du lịch Hà Nội, các bạn nên dành chút thời gian để tham quan Văn Miếu - Quốc Tử Giám, trường đại học đầu tiên của Việt Nam, nơi đây hứa hẹn nhiều thông tin thú vị cho các bạn tự khám phá.\n" +
 //                "\n" +
 //                "Được khởi lập vào cuối thế kỷ XI, Văn Miếu - Quốc Tử Giám là quần thể bao gồm Văn Miếu và Quốc Tử Giám. Quần thể di tích này nằm trên diện tích là 54.331m gồm hồ Minh Đường, vườn Giám và Nội Tự được bao bọc bởi những bức tường gạch vồ. Bốn mặt di tích đều là phố: phố Quốc Tử Giám (phía Nam), phố Nguyễn Thái Học (phía Bắc), phố Tôn Đức Thắng(phía Tây), phố Văn Miếu (phố Đông).\n"+
 //                "\n" +
@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
 //                "Du khách sẽ được tham quan 5 khu vực trong Nội tự, mỗi khu được giới hạn bởi các tường gạch vồ và có các cửa thông nhau, một cửa chính giữa và 2 cửa phụ hai bên. Văn Miếu Môn - cổng dẫn vào khu thứ nhất. Gian giữa cổng treo một tấm biển nhỏ đề 3 chữ sơn then Đại Trung môn.", "Hà Nội" , "Quốc Tử Giám, Quận Đống Đa, Hà Nội", 4.5, anh(R.drawable.anhvanmieu)
 //        );
 //
-//        sqlDiaDiem.INSERT_DiaDiem("Chùa Một Cột", "Chùa Một Cột hay Chùa Mật, còn có tên khác là Diên Hựu Tự, là một ngồi chùa nằm giữa lòng thủ đô Hà Nội với lối kiến trúc độc đáo có tòa sen ở giữa. Được xây dựng từ đời lý Thái Tông. Từ khi xây dựng cho đến nay, ngôi chùa đã được gìn giữ và trải qua nhiều đợt trùng tu lớn nhất là đợt trùng tu năm 1954 khi bị Pháp cho nổ.\n" +
+//        db.INSERT_DiaDiem("Chùa Một Cột", "Chùa Một Cột hay Chùa Mật, còn có tên khác là Diên Hựu Tự, là một ngồi chùa nằm giữa lòng thủ đô Hà Nội với lối kiến trúc độc đáo có tòa sen ở giữa. Được xây dựng từ đời lý Thái Tông. Từ khi xây dựng cho đến nay, ngôi chùa đã được gìn giữ và trải qua nhiều đợt trùng tu lớn nhất là đợt trùng tu năm 1954 khi bị Pháp cho nổ.\n" +
 //                "\n" +
 //                "Đây là một công trình kiến trúc sáng tạo kết hợp không gian kiến trúc có nhịp điệu cao thấp, gồm các điêu khắc, hội họa, chạm vẽ hành lang, mặt nước là biểu tượng văn hóa, nghệ thuật cao, tính dân tộc đậm nét. Không những được đánh giá là ngôi chùa có kiến trúc nghệ thuật độc nhất ở Việt Nam, chùa Một Cột còn là một điểm đến tâm linh, biểu tượng văn hóa ngàn năm của thủ đô Hà Nội.Vào năm 2012, Chùa Một Cột được Tổ Chức Kỷ lục Châu Á xác lập kỷ lục là Ngôi chùa có kiến trúc độc đáo nhất.\n"+
 //                "\n" +
@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
 //                "Kết cấu nguyên bản của chùa Một Cột được đỡ bởi các dầm gỗ bám chắc cột đá. Cấu trúc của chùa Một Cột hiện nay gồm: Cột trụ, đài Liên hoa, mái chùa.", "Hà Nội" , "Phố chùa Một Cột, Quận Ba Đình, Tp. Hà Nội", 4.5, anh(R.drawable.anhchuamotcot)
 //        );
 //
-//        sqlDiaDiem.INSERT_DiaDiem("Chùa Linh Ứng", "Nằm ở độ cao 693 mét so với mực nước biển, với diện tích 20 hecta, trên địa hình một bên là núi, một bên là biển. Chùa Linh Ứng là một quần thể gồm nhiều hạng mục khác nhau. Nơi đây được xem là cõi Phật giữa chốn trần gian.\n" +
+//        db.INSERT_DiaDiem("Chùa Linh Ứng", "Nằm ở độ cao 693 mét so với mực nước biển, với diện tích 20 hecta, trên địa hình một bên là núi, một bên là biển. Chùa Linh Ứng là một quần thể gồm nhiều hạng mục khác nhau. Nơi đây được xem là cõi Phật giữa chốn trần gian.\n" +
 //                "\n" +
 //                "Được khởi công xây dựng từ tháng 07/2004 và khánh thành 07/2010, Chùa Linh Ứng Bãi Bụt Đà Nẵng đang ngày một trở thành điểm thu hút khá nhiều người ghé qua.\n"+
 //                "\n" +
@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
 //                "Nhưng đừng nhầm lẫn Chùa Linh Ứng Bãi Bụt với chùa nào khác vì Đà Nẵng có đến 3 ngôi Chùa Linh Ứng đấy. Trong đó, Chùa Linh Ứng Bãi Bụt được xem là ngôi chùa lớn nhất ở thành phố. Ngôi chùa này mang một phong cách hiện đại kết hợp với truyền thống vốn có của chùa chiền Việt Nam, nên nếu đến đây bạn sẽ thấy nó nổi bật lên hẳn", "Đà Nẵng" , "Hoàng Sa, Thọ Quang, Sơn Trà, Việt Nam, Đà Nẵng", 4.5, anh(R.drawable.anhchualinhung)
 //        );
 //
-//        sqlDiaDiem.INSERT_DiaDiem("Bà Nà Hills", "Bà Nà Hill là khu resort cao cấp và giải trí phức hợp được xây dựng tại dãy Trường Sơn ở độ cao 1482m so với mặt nước biển. Đến với \"pháo đài\" trên núi này, du khách được thưởng ngoạn quang cảnh thiên nhiên hùng vĩ, núi rừng trùng điệp cùng các công trình kiến trúc mang phong cách châu Âu cổ kính. Không dừng ở đó, Bà Nà Hill sở hữu các hệ thống giải trí trong nhà hiện đại bậc nhất cùng các hệ thống nhà hàng Âu - Á sang trọng.\n" +
+//        db.INSERT_DiaDiem("Bà Nà Hills", "Bà Nà Hill là khu resort cao cấp và giải trí phức hợp được xây dựng tại dãy Trường Sơn ở độ cao 1482m so với mặt nước biển. Đến với \"pháo đài\" trên núi này, du khách được thưởng ngoạn quang cảnh thiên nhiên hùng vĩ, núi rừng trùng điệp cùng các công trình kiến trúc mang phong cách châu Âu cổ kính. Không dừng ở đó, Bà Nà Hill sở hữu các hệ thống giải trí trong nhà hiện đại bậc nhất cùng các hệ thống nhà hàng Âu - Á sang trọng.\n" +
 //                "\n" +
 //                "Bà Nà Hill là khu resort cao cấp và giải trí phức hợp được xây dựng tại dãy Trường Sơn ở độ cao 1482m so với mặt nước biển. Đến với \"pháo đài\" trên núi này, du khách được thưởng ngoạn quang cảnh thiên nhiên hùng vĩ, núi rừng trùng điệp cùng các công trình kiến trúc mang phong cách châu Âu cổ kính. Không dừng ở đó, Bà Nà Hill sở hữu các hệ thống giải trí trong nhà hiện đại bậc nhất cùng các hệ thống nhà hàng Âu - Á sang trọng.\n"+
 //                "\n" +
@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
 //                "Ngay tại khu du lịch Bà Nà Hills cũng có 1 chùa Linh Ứng. Sau khi xuống cáp treo sẽ có biển chỉ dẫn đường lên chùa Linh Ứng để dâng hương, quảng đường này khá xa đấy nhé! Đây là một trong 3 ngôi chùa Linh Ứng ở Đà Nẵng, có tượng Phật Thích Ca cao tới 27m, đế tượng được thiết kế 8 mặt thể hiện 8 giai đoạn trong cuộc đời Đức Phật. Chùa còn có bản sao của vườn Lộc uyển – nơi Phật thuyết giáo lần đầu tiên.", "Đà Nẵng" , "Trường Chinh, Hòa Thuận Tây, Tp. Đà Nẵng", 4.5, anh(R.drawable.anhbanlahills)
 //        );
 //
-//        sqlDiaDiem.INSERT_DiaDiem("Ngũ Hành Sơn", "5 ngọn núi đá vôi khổng lồ: Kim Sơn, Mộc Sơn, Thủy Sơn, Hỏa Sơn và Thổ Sơn này nằm cách Đà Nẵng chỉ khoảng 8km, rất tiện cho khách du lịch thuê xe để tự trải nghiệm. Trước đây, theo lời kể của dân bản địa, núi Ngũ Hành Sơn đứng một mình giữa khoảng cát trắng vô tận của vùng bán đảo Tiên Sa. Theo tác động của thời gian và khí hậu biển, bên trong núi hình thành các hang đá lớn và có hình thù độc đáo; đá cẩm thạch ở đây cũng mang màu sắc 5 hành huyền ảo.\n" +
+//        db.INSERT_DiaDiem("Ngũ Hành Sơn", "5 ngọn núi đá vôi khổng lồ: Kim Sơn, Mộc Sơn, Thủy Sơn, Hỏa Sơn và Thổ Sơn này nằm cách Đà Nẵng chỉ khoảng 8km, rất tiện cho khách du lịch thuê xe để tự trải nghiệm. Trước đây, theo lời kể của dân bản địa, núi Ngũ Hành Sơn đứng một mình giữa khoảng cát trắng vô tận của vùng bán đảo Tiên Sa. Theo tác động của thời gian và khí hậu biển, bên trong núi hình thành các hang đá lớn và có hình thù độc đáo; đá cẩm thạch ở đây cũng mang màu sắc 5 hành huyền ảo.\n" +
 //                "\n" +
 //                "5 ngọn núi đá vôi khổng lồ: Kim Sơn, Mộc Sơn, Thủy Sơn, Hỏa Sơn và Thổ Sơn này nằm cách Đà Nẵng chỉ khoảng 8km, rất tiện cho khách du lịch thuê xe để tự trải nghiệm.\n"+
 //                "\n" +
@@ -223,17 +223,17 @@ public class MainActivity extends AppCompatActivity {
 //        );
 
         // insert KhachSan
-//        sqlDiaDiem.INSERT_KhachSan("Green Mountain Homestay", "0964129650", "Tràng An", "Ninh Bình (cách 0,7 km từ Trang An Eco Tourism Complex)", 5, anh(R.drawable.khachsantrangan));
-//        sqlDiaDiem.INSERT_KhachSan("Green Mountain Homestay", "0947654372", "Chùa Bái Đính", "Ninh Bình (cách 5,2 km từ Chùa Bái Đính)", 5, anh(R.drawable.khachsantrangan));
-//        sqlDiaDiem.INSERT_KhachSan("Tam Coc Horizon Bungalow", "0998657342", "Tam Cốc - Bích Động", "Ninh Bình (cách 0,6 km từ Động Tam Cốc)", 5, anh(R.drawable.khachsantamcoc));
-//        sqlDiaDiem.INSERT_KhachSan("Green Mountain Homestay", "0986473215", "Cố Đô Hoa Lư", "Ninh Bình (cách 2 km từ Cố Đô Hoa Lư)", 5, anh(R.drawable.khachsantrangan));
-//        sqlDiaDiem.INSERT_KhachSan("Solaria Hanoi Hotel", "0978654327", "Hồ Hoàn Kiếm", "Hà Nội (cách 0,25 km từ Hồ Hoàn Kiếm)", 5, anh(R.drawable.khachsanhohoankiem));
-//        sqlDiaDiem.INSERT_KhachSan("MICHI house", "0987543362", "Lăng Chủ Tịch Hồ Chí Minh", "Hà Nội (cách 0,4 km từ Lăng Bác)", 5, anh(R.drawable.khachsanlangbac));
-//        sqlDiaDiem.INSERT_KhachSan("Pullman Hanoi", "0988876421", "Văn Miếu Quốc Tử Giám", "Hà Nội (cách 0,8 km từ Văn Miếu Quốc Tử Giám)", 5, anh(R.drawable.khachsanvanmieu));
-//        sqlDiaDiem.INSERT_KhachSan("Da Tree Homestay", "0985424325", "Chùa Một Cột", "Hà Nội (cách 0,6 km từ Chùa Một Cột)", 5, anh(R.drawable.anhchuamotcot));
-//        sqlDiaDiem.INSERT_KhachSan("Sontra Sea Hotel", "0933322256", "Chùa Linh Ứng", "Đà Nẵng (cách 0,6 km từ Chùa Linh Ứng)", 5, anh(R.drawable.khachsanchualinhung));
-//        sqlDiaDiem.INSERT_KhachSan("Mercure Danang French Village Bana Hills", "0988887777", "Bà Nà Hills", "Đà Nẵng (cách 1,4 km từ Trung tâm Bà Nà Hills)", 5, anh(R.drawable.khachsanbalahill));
-//        sqlDiaDiem.INSERT_KhachSan("Danang Marriott Resort & Spa", "0856483123", "Ngũ Hành Sơn", "Đà Nẵng(cách 0,6 km từ Ngũ Hành Sơn)", 5, anh(R.drawable.khachsannguhanhson));
+//        db.INSERT_KhachSan("Green Mountain Homestay", "0964129650", "Tràng An", "Ninh Bình (cách 0,7 km từ Trang An Eco Tourism Complex)", 5, anh(R.drawable.khachsantrangan));
+//        db.INSERT_KhachSan("Green Mountain Homestay", "0947654372", "Chùa Bái Đính", "Ninh Bình (cách 5,2 km từ Chùa Bái Đính)", 5, anh(R.drawable.khachsantrangan));
+//        db.INSERT_KhachSan("Tam Coc Horizon Bungalow", "0998657342", "Tam Cốc - Bích Động", "Ninh Bình (cách 0,6 km từ Động Tam Cốc)", 5, anh(R.drawable.khachsantamcoc));
+//        db.INSERT_KhachSan("Green Mountain Homestay", "0986473215", "Cố Đô Hoa Lư", "Ninh Bình (cách 2 km từ Cố Đô Hoa Lư)", 5, anh(R.drawable.khachsantrangan));
+//        db.INSERT_KhachSan("Solaria Hanoi Hotel", "0978654327", "Hồ Hoàn Kiếm", "Hà Nội (cách 0,25 km từ Hồ Hoàn Kiếm)", 5, anh(R.drawable.khachsanhohoankiem));
+//        db.INSERT_KhachSan("MICHI house", "0987543362", "Lăng Chủ Tịch Hồ Chí Minh", "Hà Nội (cách 0,4 km từ Lăng Bác)", 5, anh(R.drawable.khachsanlangbac));
+//        db.INSERT_KhachSan("Pullman Hanoi", "0988876421", "Văn Miếu Quốc Tử Giám", "Hà Nội (cách 0,8 km từ Văn Miếu Quốc Tử Giám)", 5, anh(R.drawable.khachsanvanmieu));
+//        db.INSERT_KhachSan("Da Tree Homestay", "0985424325", "Chùa Một Cột", "Hà Nội (cách 0,6 km từ Chùa Một Cột)", 5, anh(R.drawable.anhchuamotcot));
+//        db.INSERT_KhachSan("Sontra Sea Hotel", "0933322256", "Chùa Linh Ứng", "Đà Nẵng (cách 0,6 km từ Chùa Linh Ứng)", 5, anh(R.drawable.khachsanchualinhung));
+//        db.INSERT_KhachSan("Mercure Danang French Village Bana Hills", "0988887777", "Bà Nà Hills", "Đà Nẵng (cách 1,4 km từ Trung tâm Bà Nà Hills)", 5, anh(R.drawable.khachsanbalahill));
+//        db.INSERT_KhachSan("Danang Marriott Resort & Spa", "0856483123", "Ngũ Hành Sơn", "Đà Nẵng(cách 0,6 km từ Ngũ Hành Sơn)", 5, anh(R.drawable.khachsannguhanhson));
 
 
     }

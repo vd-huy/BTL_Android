@@ -15,17 +15,26 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+
+import org.w3c.dom.Text;
 
 public class ThongTinDiaDiem extends FragmentActivity {
     ViewPager2 viewPager;
 
     TabLayout tabLayout;
+
+    TextView tvTenDiaDiem;
+
+    private String tenDiaDiem;
 
 
 
@@ -36,7 +45,18 @@ public class ThongTinDiaDiem extends FragmentActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         viewPager = (ViewPager2) findViewById(R.id.view_pager);
+        tvTenDiaDiem = (TextView) findViewById(R.id.tvTittle);
 
+        // lay du lieu tu intent cua inforlocation ra de su dung
+        Intent intent = getIntent();
+        tenDiaDiem = intent.getStringExtra("diadiem");
+        tvTenDiaDiem.setText(tenDiaDiem);
+
+        // truyen du lieu vao fragment
+        ThongTinFragment thongTinFragment = new ThongTinFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("tenDiaDiem", tenDiaDiem);
+        thongTinFragment.setArguments(bundle);
 
         FragmentAdapter adapter = new FragmentAdapter(this);
         viewPager.setAdapter(adapter);
@@ -57,6 +77,7 @@ public class ThongTinDiaDiem extends FragmentActivity {
                 }
             }
         }).attach();
+
 
     }
 

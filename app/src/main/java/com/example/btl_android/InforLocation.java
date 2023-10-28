@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -85,7 +86,10 @@ public class InforLocation extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 DiaDiem selectedDiaDiem = diaDiemArrayList.get(i);
 
-                Toast.makeText(InforLocation.this, i, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(InforLocation.this, ThongTinDiaDiem.class);
+                intent.putExtra("diadiem", selectedDiaDiem.getTenDiaDiem());
+                Log.e("dia diem", selectedDiaDiem.getTenDiaDiem());
+                startActivity(intent);
             }
         });
     }

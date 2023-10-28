@@ -1,6 +1,7 @@
 package com.example.btl_android;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,16 +27,16 @@ public class ThongTinFragment extends Fragment {
 
     public static DiaDiem diaDiem;
 
-    String tenDiaDiem = "Bà Nà Hills";
+    public  ImageView imageViewDiaDiem;
 
-    public static ImageView imageViewDiaDiem;
+    public  TextView textViewDiaDiem;
 
-    public static TextView textViewDiaDiem;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  (ViewGroup)inflater.inflate(R.layout.fragment_thong_tin,container,false);
+
 
         imageViewDiaDiem = view.findViewById(R.id.imgAnhDiaDiem);
         textViewDiaDiem = view.findViewById(R.id.tvThongTinDiaDiem);
@@ -54,12 +56,21 @@ public class ThongTinFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         db = new SQLite(getContext(), "dulich.sqlite", null, 1);
-        loadDiaDiemData();
+
+        Bundle args = getArguments();
+        if(args != null){
+            String tenDiaDiem = args.getString("tenDiaDiem");
+            Log.e("Ten Dia Diem", tenDiaDiem );
+            loadDiaDiemData(tenDiaDiem);
+        }
+
+
     }
 
-    private void loadDiaDiemData() {
+    private void loadDiaDiemData(String tenDiaDiem) {
+
+
         Cursor data = db.GetData("SELECT * FROM DiaDiem WHERE tenDiaDiem = '" + tenDiaDiem + "'");
 
         if (data != null && data.moveToFirst()) {
