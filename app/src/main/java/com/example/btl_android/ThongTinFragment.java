@@ -27,6 +27,8 @@ public class ThongTinFragment extends Fragment {
 
     public static DiaDiem diaDiem;
 
+    private  String tenDiaDiem;
+
     public  ImageView imageViewDiaDiem;
 
     public  TextView textViewDiaDiem;
@@ -37,9 +39,14 @@ public class ThongTinFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  (ViewGroup)inflater.inflate(R.layout.fragment_thong_tin,container,false);
 
-
         imageViewDiaDiem = view.findViewById(R.id.imgAnhDiaDiem);
         textViewDiaDiem = view.findViewById(R.id.tvThongTinDiaDiem);
+
+        ThongTinDiaDiem thongTinDiaDiem = (ThongTinDiaDiem)getActivity();
+
+        Bundle result = thongTinDiaDiem.getData();
+        tenDiaDiem = result.getString("tenDiaDiem");
+        loadDiaDiemData(tenDiaDiem);
 
         if (diaDiem != null) {
             textViewDiaDiem.setText(diaDiem.getThongTin());
@@ -57,15 +64,6 @@ public class ThongTinFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db = new SQLite(getContext(), "dulich.sqlite", null, 1);
-
-        Bundle args = getArguments();
-        if(args != null){
-            String tenDiaDiem = args.getString("tenDiaDiem");
-            Log.e("Ten Dia Diem", tenDiaDiem );
-            loadDiaDiemData(tenDiaDiem);
-        }
-
-
     }
 
     private void loadDiaDiemData(String tenDiaDiem) {

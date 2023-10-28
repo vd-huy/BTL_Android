@@ -53,10 +53,12 @@ public class ThongTinDiaDiem extends FragmentActivity {
         tvTenDiaDiem.setText(tenDiaDiem);
 
         // truyen du lieu vao fragment
-        ThongTinFragment thongTinFragment = new ThongTinFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("tenDiaDiem", tenDiaDiem);
-        thongTinFragment.setArguments(bundle);
+//        Bundle bundle = new Bundle();
+//        bundle.putString("tenDiaDiem", tenDiaDiem);
+//        Log.e("Ten Dia Diem", bundle.getString("tenDiaDiem") );
+//        ThongTinFragment thongTinFragment = new ThongTinFragment();
+//        thongTinFragment.setArguments(bundle);
+
 
         FragmentAdapter adapter = new FragmentAdapter(this);
         viewPager.setAdapter(adapter);
@@ -78,7 +80,12 @@ public class ThongTinDiaDiem extends FragmentActivity {
             }
         }).attach();
 
+    }
 
+    public Bundle getData(){
+        Bundle bundle = new Bundle();
+        bundle.putString("tenDiaDiem", tenDiaDiem);
+        return bundle;
     }
 
 
