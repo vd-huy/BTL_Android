@@ -40,9 +40,9 @@
         android:layout_margin="5dp"
         >
         <ImageView
+
             android:layout_width="35dp"
             android:layout_height="50dp"
-
             android:src="@drawable/kinhlup"
             android:layout_marginTop="10dp"
 

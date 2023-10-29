@@ -51,11 +51,10 @@
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:backgroundTint="@color/black"
-
-
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
         android:hint="Mật khẩu"
+        android:inputType="textPassword"
         />
 
     <LinearLayout
