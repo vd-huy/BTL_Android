@@ -1,7 +1,7 @@
 package com.example.btl_android;
 
 public class KhachSan {
-    private int IDKhachSan;
+    private int IdKhachSan;
 
     private String TenKhachSan, DiaChi,  SoDienThoai;
 
@@ -9,8 +9,8 @@ public class KhachSan {
 
     private byte[] Hinh;
 
-    public KhachSan(int IDKhachSan, String tenKhachSan, String diaChi, String soDienThoai, double rate, byte[] hinh) {
-        this.IDKhachSan = IDKhachSan;
+    public KhachSan(int idKhachSan, String tenKhachSan, String diaChi, String soDienThoai, double rate, byte[] hinh) {
+        IdKhachSan = idKhachSan;
         TenKhachSan = tenKhachSan;
         DiaChi = diaChi;
         SoDienThoai = soDienThoai;
@@ -18,12 +18,12 @@ public class KhachSan {
         Hinh = hinh;
     }
 
-    public int getIDKhachSan() {
-        return IDKhachSan;
+    public int getIdKhachSan() {
+        return IdKhachSan;
     }
 
-    public void setIDKhachSan(int IDKhachSan) {
-        this.IDKhachSan = IDKhachSan;
+    public void setIdKhachSan(int idKhachSan) {
+        IdKhachSan = idKhachSan;
     }
 
     public String getTenKhachSan() {

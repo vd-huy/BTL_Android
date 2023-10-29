@@ -67,8 +67,8 @@ public class SQLite extends SQLiteOpenHelper {
 
         statement.bindString(1,TenKhachSan);
         statement.bindString(2,SoDienThoai);
-        statement.bindString(3,DiaChi);
-        statement.bindString(4,TenDiaDiem);
+        statement.bindString(3,TenDiaDiem);
+        statement.bindString(4,DiaChi);
         statement.bindDouble(5,Rate);
         statement.bindBlob(6,HinhAnh);
         statement.executeInsert();

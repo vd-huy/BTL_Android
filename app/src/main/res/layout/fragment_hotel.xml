@@ -5,65 +5,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginRight="10dp"
     android:layout_marginLeft="10dp"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp">
 
-    <ImageView
-        android:id="@+id/imageViewKhachSan"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+
+    <ListView
+        android:id="@+id/lvKhachSan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="1dp"
-        android:scaleType="center"
-        android:src="@drawable/anhchuabaidinh" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="120dp"
-        android:layout_toRightOf="@+id/imageViewKhachSan"
-        android:layout_marginLeft="10dp"
-        android:orientation="vertical"
-        >
-
-        <TextView
-            android:id="@+id/TenKhachSan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sông Hàn và 4 cây cầu kỉ lục"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"/>
-
-        <me.zhanghai.android.materialratingbar.MaterialRatingBar
-            android:id="@+id/rateKhachSan"
-            android:layout_width="150dp"
-            android:layout_height="20dp"
-            android:rating="4.5"
-            android:layout_marginTop="10dp"
-            app:mrb_progressTint="#ff0"
-            android:isIndicator="true"
-            />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
-
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/gps"
-                android:layout_marginTop="10dp"/>
-            <TextView
-                android:id="@+id/DiaChiKhachSan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hoàng Sa, Thọ Quang, Sơn Trà, Việt Nam, Đà Nẵng"
-                android:layout_marginTop="8dp"
-                />
-        </LinearLayout>
-    </LinearLayout>
-
-
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="-6dp" />
 </RelativeLayout>
