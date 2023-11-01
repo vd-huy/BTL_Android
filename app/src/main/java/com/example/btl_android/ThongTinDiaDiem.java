@@ -16,10 +16,13 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
@@ -28,6 +31,8 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import org.w3c.dom.Text;
 
 public class ThongTinDiaDiem extends FragmentActivity {
+    public static SQLite db;
+
     ViewPager2 viewPager;
 
     TabLayout tabLayout;
@@ -36,6 +41,10 @@ public class ThongTinDiaDiem extends FragmentActivity {
 
     private String tenDiaDiem;
 
+    private String tinh;
+
+    ImageView btnBack;
+
 
 
     @Override
@@ -43,9 +52,30 @@ public class ThongTinDiaDiem extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thong_tin_dia_diem );
 
+        db = new SQLite(ThongTinDiaDiem.this, "dulich.sqlite", null, 1);
+
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         viewPager = (ViewPager2) findViewById(R.id.view_pager);
         tvTenDiaDiem = (TextView) findViewById(R.id.tvTittle);
+        btnBack = (ImageView) findViewById(R.id.btnBack);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ThongTinDiaDiem.this, InforLocation.class);
+
+                Cursor data = db.GetData("SELECT * FROM DiaDiem WHERE tenDiaDiem = " + "'"  + tenDiaDiem + "'");
+            while (data.moveToNext()){
+                tinh = data.getString(3);
+            }
+
+
+                intent.putExtra("Tinh", tinh);
+                startActivity(intent);
+
+
+            }
+        });
 
         // lay du lieu tu intent cua inforlocation ra de su dung
         Intent intent = getIntent();

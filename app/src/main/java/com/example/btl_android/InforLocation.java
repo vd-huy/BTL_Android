@@ -76,8 +76,6 @@ public class InforLocation extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(InforLocation.this, trangchu.class);
                 startActivity(intent);
-
-
             }
         });
 
